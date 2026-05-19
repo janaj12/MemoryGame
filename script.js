@@ -10,16 +10,16 @@ const cards = [
 
 //dupliranjee spread operator
 const gameCard=[...cards, ...cards];
-
 //mesanje karata shuffle
 gameCard.sort (()=> Math.random() - 0.5);
 
 //uzimamoo board 
 const gameBoard = document.getElementById("gameBoard");
-
+const movesCounter = document.getElementById("moves");
 let firstCard = null;
 let secondCard = null; 
 let lockBoard = false;
+
 
 //ovde kartice pravimo
 gameCard.forEach(emoji => {
@@ -27,10 +27,12 @@ gameCard.forEach(emoji => {
     //ovoo jee div prr
     const card= document.createElement("div");
 
-    //klasu smo dodLI
+    //klasu smo dodali
     card.classList.add("card");
+
     //NAS POCETNI ZNAAK
     card.textContent="<3";
+
     // cuvamo emoji
     card.dataset.value = emoji;
 
@@ -44,6 +46,7 @@ gameCard.forEach(emoji => {
 
 function flipCard() {
     //ako je lockBoard true nema klika
+
     if (lockBoard){
         return;
     }
@@ -52,8 +55,8 @@ function flipCard() {
     }
 
     //otvaranje kartice
-
     this.textContent = this.dataset.value;
+
     //ako nema prva kartica
     if (!firstCard) {
         firstCard = this;
@@ -63,7 +66,6 @@ function flipCard() {
         checkMatch();
     }
 }
-
 //Match logika, provera para
 function checkMatch(){
     //uporedjuje dva elementa
@@ -75,20 +77,16 @@ function checkMatch(){
         unflipCards();
     }
 }
-
 //Zatvaranje kartica
-
 function unflipCards() {
     lockBoard= true;
     setTimeout(() => {
 
-    // Vraćanje ?
+    // Vraćanje <3
     firstCard.textContent = "<3";
     secondCard.textContent = "<3";
-
     // Reset
     resetCards();
-
   }, 700);
 }
 
@@ -96,6 +94,8 @@ function resetCards() {
     firstCard= null;
     secondCard =null;
     lockBoard = false;
+    let moves=0;
+    
 }
 
 
