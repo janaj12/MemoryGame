@@ -19,6 +19,7 @@ const movesCounter = document.getElementById("moves");
 let firstCard = null;
 let secondCard = null; 
 let lockBoard = false;
+let moves=0;
 
 
 //ovde kartice pravimo
@@ -95,7 +96,7 @@ function resetCards() {
     secondCard =null;
     lockBoard = false;
     let moves=0;
-    
+
 }
 
 
