@@ -7,12 +7,13 @@ const cards = [
     "😻", 
     "🪄",
     "🦄"];
-
 const gameCard=[...cards, ...cards];
 gameCard.sort (()=> Math.random() - 0.5);
 
 const gameBoard = document.getElementById("gameBoard");
 const movesCounter = document.getElementById("moves");
+const restartBtn = document.getElementById("restartBtn")
+
 let firstCard = null;
 let secondCard = null; 
 let lockBoard = false;
@@ -28,14 +29,12 @@ gameCard.forEach(emoji => {
 });
 
 function flipCard() {
-
     if (lockBoard){
         return;
     }
     if (this === firstCard){
         return;
     }
-
     this.textContent = this.dataset.value;
 
     if (!firstCard) {
@@ -71,8 +70,11 @@ function resetCards() {
     firstCard= null;
     secondCard =null;
     lockBoard = false;
-
 }
+
+restartBtn.addEventListener("click", function() {
+location.reload();
+});
 
 
 

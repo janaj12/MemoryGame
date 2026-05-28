@@ -6,7 +6,12 @@
 }
 
 body {
-    background-color: rgba(162, 22, 132, 0.511);
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     display: flex;
@@ -38,8 +43,17 @@ h1 {
     cursor: pointer;
     transition: 0.3s;
 }
+
 .card:hover {
-    transform: scale(2);
+    transform: scale(1.2);
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px, 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
     
 
